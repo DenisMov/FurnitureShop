@@ -1,0 +1,30 @@
+.productItem {
+  width: 305px;
+  height: 462px;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  img {
+    width: 305px;
+    height: 375px;
+    object-fit: cover;
+  }
+  &__title {
+    margin-top: 24px;
+    width: 154px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 140%;
+    color: #2a254b;
+  }
+  &__price {
+    margin-top: 8px;
+    width: 154px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 140%;
+    color: #2a254b;
+  }
+}

@@ -1,0 +1,69 @@
+.footer {
+  width: 100%;
+  height: 380px;
+  padding: 0 80px;
+  background-color: #2a254b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 140%;
+  color: #FFFFFF;
+  cursor: pointer;
+  }
+  &__up {
+    margin-top: 50px;
+    width: 1277px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__socialBlock {
+    margin-top: 22px;
+    display: flex;
+    gap: 24px;
+  }
+  .social-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .nocursor {
+    cursor: default;
+  }
+  .size20 {
+    font-size: 20px;
+
+  }
+  .mgleft0 {
+    width: 1277px;
+  }
+  span {
+    display: block;
+    margin-top: 38px;
+    width: 1277px;
+    height: 0px;
+    border: 1px solid #4E4D93;
+
+  }
+  
+  p {
+    margin-top: 12px;
+    font-family: 'Satoshi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
+
+  }
+}

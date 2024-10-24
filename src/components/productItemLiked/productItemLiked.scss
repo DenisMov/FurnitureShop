@@ -1,0 +1,32 @@
+.itemLiked {
+  height: 740px;
+  h2 {
+    margin-top: 40px;
+    margin-left: 80px;
+    font-size: 32px;
+    line-height: 39px;
+    color: #2a254b;
+  }
+  img {
+    height: 375px;
+    width: 305px;
+    object-fit: cover;
+  }
+  button {
+    display: block;
+    margin: 55px auto;
+    padding: 16px 32px;
+    color: black;
+  }
+  &__block {
+    display: flex;
+    margin: 33px 80px;
+    gap: 20px;
+  }
+  &__title {
+    margin-top: 24px;
+  }
+  &__price {
+    margin-top: 8px;
+  }
+}

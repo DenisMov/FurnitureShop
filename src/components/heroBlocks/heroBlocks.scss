@@ -1,0 +1,32 @@
+.heroBlocks {
+  height: 700px;
+  padding: 60px 80px;
+  &__container {
+    display: flex;
+    height: 100%;
+  }
+  &__info {
+    padding: 60px 100px 60px 60px;
+    background-color: rgb(42, 37, 75);
+    width: 760px;
+  }
+  &__title {
+    width: 515px;
+    color: white;
+    font-family: ClashDisplay;
+    font-size: 32px;
+  }
+  &__button {
+    margin-top: 40px;
+    padding: 16px 32px;
+    width: 170px;
+    height: 56px;
+    color: white;
+    background: rgba(249, 249, 249, 0.15);
+  }
+  &__descr {
+    margin-top: 195px;
+    color: white;
+    font-size: 18px;
+  }
+}

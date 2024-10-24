@@ -1,0 +1,16 @@
+.pageHeaders {
+  position: relative;
+  height: 209px;
+  width: 100%;
+  background-image: url("../../assets/images/pageHeaders.jpg");
+  background-position: center;
+  background-size: cover;
+  &__title {
+    position: absolute;
+    left: 80px;
+    bottom: 36px;
+    color: white;
+    font-size: 36px;
+    font-weight: 400;
+  }
+}

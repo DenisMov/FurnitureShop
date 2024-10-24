@@ -1,0 +1,38 @@
+.removeModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  &__content {
+    width: 600px;
+    height: 230px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 50px;
+  }
+  &__title {
+    font-size: 25px;
+  }
+  &__item {
+    margin-top: 15px;
+    font-size: 20px;
+  }
+  &__container {
+    margin-top: 35px;
+    display: flex;
+    justify-content: end;
+    gap: 50px;
+    button {
+      height: 40px;
+      width: 80px;
+      color: #fff;
+      background: rgb(42, 37, 75);
+    }
+  }
+}

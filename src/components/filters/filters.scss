@@ -1,0 +1,24 @@
+.filters {
+  padding: 48px 149px 0 80px;
+  width: 365px;
+  &__wrapper {
+    margin-bottom: 50px;
+  }
+
+  &__list {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+    color: #2a254b;
+    li {
+      display: flex;
+      align-content: center;
+      gap: 12px;
+    }
+  }
+
+  &__title {
+    font-family: "ClashDisplay";
+    color: #2a254b;
+  }
+}

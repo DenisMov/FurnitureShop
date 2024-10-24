@@ -1,0 +1,15 @@
+.navigation {
+  padding: 20px 0;
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    font-weight: 400;
+    a {
+      color: rgb(114, 110, 141);
+      &:hover {
+        color: rgb(28, 16, 109);
+      }
+    }
+  }
+}

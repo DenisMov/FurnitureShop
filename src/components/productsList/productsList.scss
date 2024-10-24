@@ -1,0 +1,31 @@
+.productsList {
+  margin-top: 36px;
+  padding-left: 20px;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 305px);
+    gap: 36px 20px;
+    justify-content: center;
+  }
+  &__button {
+    display: flex;
+    margin: 32px auto 36px auto;
+    width: 140px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #2a254b;
+    cursor: pointer;
+  }
+}
+
+.noItems {
+  display: block;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 44px;
+  text-align: center;
+  color: #2a254b;
+}

@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  position: relative;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+    font-family: "ClashDisplay";
+    font-style: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #22202e;
+    cursor: pointer;
+  }
+  &__cart {
+    position: relative;
+    cursor: pointer;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    bottom: 0;
+  }
+  &__counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 17px;
+    height: 17px;
+    background-color: #26043d;
+    border-radius: 100%;
+    color: rgb(255, 255, 255);
+  }
+}
