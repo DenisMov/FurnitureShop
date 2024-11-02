@@ -28,3 +28,17 @@
     color: #2a254b;
   }
 }
+@media (max-width: 1400px) {
+  .productItem {
+    img {
+      width: 281px;
+      height: 325px;
+    }
+  }
+}
+@media (max-width: 991px) {
+  .productItem {
+    width: 100%;
+    height: 100%;
+  }
+}

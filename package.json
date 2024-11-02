@@ -33,7 +33,7 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"cd ./src/server && node ./server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@types/uuid": "^9.0.8",
-    "@types/yup": "^0.32.0"
+    "@types/yup": "^0.32.0",
+    "concurrently": "^9.0.1"
   }
 }

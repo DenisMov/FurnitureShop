@@ -13,3 +13,20 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .navigation {
+    &__list {
+      gap: 20px;
+    }
+  }
+}
+@media (max-width: 575.98px) {
+  .navigation {
+    &__list {
+      flex-flow: wrap;
+      font-size: 15px;
+      gap: 3px;
+      column-gap: 10px;
+    }
+  }
+}

@@ -58,7 +58,7 @@ const CartItem: FC<ICartItemProps> = ({
           <div style={{ marginTop: 12 }}>
             <div className="cart__item-title">{title}</div>
             <div className="cart__item-descr">{descriptionText}</div>
-            <div className="cart__item-price">£{price}</div>
+            {/* <div className="cart__item-price">£{price}</div> */}
           </div>
         </div>
       </div>

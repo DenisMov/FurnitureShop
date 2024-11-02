@@ -22,7 +22,7 @@ const Header = () => {
         <div className="header__logo">Avion</div>
       </Link>
 
-      <div style={{ display: "flex", gap: 20 }}>
+      <div className="header__regist">
         {isAuth ? (
           <>
             <Link to="/user">{user?.username}</Link>

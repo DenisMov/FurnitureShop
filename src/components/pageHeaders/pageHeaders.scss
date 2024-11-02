@@ -14,3 +14,20 @@
     font-weight: 400;
   }
 }
+@media (max-width: 991.98px) {
+  .pageHeaders {
+    height: 150px;
+  }
+}
+@media (max-width: 768px) {
+  .pageHeaders {
+    height: 120px;
+    // width: 118%;
+    // left: -10px;
+    &__title {
+      left: 15px;
+      bottom: 12px;
+      font-size: 29px;
+    }
+  }
+}

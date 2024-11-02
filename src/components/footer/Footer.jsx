@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       <span></span>
-      <p className="mgleft0">Copyright 2022 Avion LTD</p>
+      <p className="mgleft0">Copyright 2024 Avion LTD</p>
     </div>
   );
 };

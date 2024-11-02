@@ -47,3 +47,14 @@
   align-self: center;
   text-align: center;
 }
+@media (max-width: 575.98px) {
+  .auth {
+    padding: 100px 20px;
+    &__form {
+      width: auto;
+    }
+    &__input {
+      width: 100%;
+    }
+  }
+}

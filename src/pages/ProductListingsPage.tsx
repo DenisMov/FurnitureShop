@@ -6,7 +6,7 @@ const ProductListingsPage = () => {
   return (
     <>
       <PageHeaders />
-      <div style={{ display: "flex" }}>
+      <div className="productListPage">
         <Filters />
         <ProductsList />
       </div>

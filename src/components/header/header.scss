@@ -4,6 +4,7 @@
   padding: 20px 0;
   align-items: center;
   justify-content: space-between;
+
   &__logo {
     font-family: "ClashDisplay";
     font-style: normal;
@@ -36,5 +37,22 @@
     background-color: #26043d;
     border-radius: 100%;
     color: rgb(255, 255, 255);
+  }
+  &__regist {
+    display: flex;
+    gap: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .header {
+    padding: 10px 0;
+    &__regist {
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-end;
+    }
+    p {
+      line-height: 7px;
+    }
   }
 }

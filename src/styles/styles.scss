@@ -4,10 +4,25 @@
 .container {
   display: block;
   width: 1386px;
-  margin: 0 auto; 
+  margin: 0 auto;
+}
+@media (max-width: 1600px) {
+  .container {
+    width: calc(100vw - 100px);
+  }
 }
 @media (max-width: 1400px) {
   .container {
-    width: calc(100vw - 100px)
+    width: calc(100vw - 100px);
+  }
+}
+@media (max-width: 575.98px) {
+  .container {
+    width: calc(110vw - 100px);
+  }
+}
+@media (max-width: 475.98px) {
+  .container {
+    width: 95vw;
   }
 }

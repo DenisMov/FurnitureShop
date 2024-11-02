@@ -41,7 +41,7 @@ const CartModalItem: FC<ICartModalItemProps> = ({
         <div className="cartModal__item-info">
           <div className="cartModal__item-title">{title}</div>
           <div className="cartModal__item-descr">{descriptionText}</div>
-          <div className="cartModal__item-price">£{price}</div>
+          {/* <div className="cartModal__item-price">£{price}</div> */}
         </div>
       </div>
       <Counter value={value} onChange={setValue} />
