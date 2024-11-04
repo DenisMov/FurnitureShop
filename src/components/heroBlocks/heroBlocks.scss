@@ -9,7 +9,7 @@
 
   &__info {
     display: flex;
-    flex-direction: column; // Розташовує внутрішні елементи вертикально
+    flex-direction: column;
     padding: 60px 100px 60px 60px;
     background-color: rgb(42, 37, 75);
     width: 760px;
@@ -32,7 +32,7 @@
   }
 
   &__descr {
-    margin-top: auto; // Відштовхує цей елемент вниз
+    margin-top: auto;
     color: white;
     font-size: 18px;
   }
@@ -104,6 +104,7 @@
     &__container {
       flex-flow: column-reverse;
       align-items: center;
+      margin: 0px 30px;
     }
     &__info {
       width: auto;
@@ -113,6 +114,16 @@
       height: 300px;
       object-fit: cover;
       object-position: bottom;
+    }
+  }
+}
+@media (max-width: 475.98px) {
+  .heroBlocks {
+    &__title {
+      font-size: 17px;
+    }
+    &__descr {
+      font-size: 15px;
     }
   }
 }
