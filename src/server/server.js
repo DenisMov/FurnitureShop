@@ -1,9 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-
+const path = require("path");
 const app = express();
+const port = 3001;
+
 app.use(cors());
 app.use(express.json());
+
+app.use("/assets", express.static(path.join(__dirname, "..", "assets")));
 
 const productsData = [
   {
@@ -104,11 +108,13 @@ const productsData = [
     designer: "Liam Gallagher",
   },
 ];
+
 const users = [];
 const orders = [];
 
 app.post("/orders", (req, res) => {
   try {
+    console.log("200");
     orders.push(req.body);
     return res.status(201).json({ message: "Order has been posted" });
   } catch (error) {
@@ -160,6 +166,8 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
+  console.log(users);
+
   try {
     const { username, password } = req.body;
     const user = users.find(
@@ -176,4 +184,6 @@ app.post("/login", (req, res) => {
   }
 });
 
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
+});

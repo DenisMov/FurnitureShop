@@ -54,6 +54,14 @@ const CartModal = () => {
               <span>£{cartTotal}</span>
             </div>
             <button
+              className="cartModal__button continue"
+              onClick={() => {
+                handleCloseAddProductModal();
+              }}
+            >
+              Continue shopping
+            </button>
+            <button
               className="cartModal__button"
               onClick={() => {
                 navigate("../cart");

@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import "./auth.scss";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { clearError, loginUser } from "../../slices/userSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AuthProvider } from "../../auth";
+import { User } from "firebase/auth";
 
-interface formData {
+interface FormData {
   username: string;
   password: string;
 }
@@ -16,19 +15,41 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm();
-  const dispatch = useDispatch();
+  } = useForm<FormData>();
   const navigate = useNavigate();
-
-  const { error, isLoading } = useTypedSelector((state) => state.user);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(clearError());
-  }, [dispatch]);
+    setError(null);
+  }, []);
 
-  const onSubmit = async (data: any) => {
-    //@ts-ignore
-    dispatch(loginUser(data));
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+    try {
+      if (data.username === "testuser" && data.password === "password123") {
+        const user = { id: "123", username: data.username };
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate("/home");
+      } else {
+        setError("Invalid username or password.");
+      }
+    } catch (e) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = (user: User) => {
+    const loggedUser = {
+      id: user.uid,
+      username: user.displayName,
+      email: user.email,
+    };
+    localStorage.setItem("user", JSON.stringify(loggedUser));
+    navigate("/home");
+    window.location.reload();
   };
 
   return (
@@ -43,7 +64,6 @@ const Login = () => {
           />
           {errors.username && <div className="error">Required</div>}
         </div>
-
         <div className="auth__input">
           <input
             type="password"
@@ -52,11 +72,16 @@ const Login = () => {
           />
           {errors.password && <div className="error">Required</div>}
         </div>
-        <button type="submit" disabled={isSubmitting} className="auth__button">
+        <button
+          type="submit"
+          disabled={isSubmitting || isLoading}
+          className="auth__button"
+        >
           {isLoading ? "Loading..." : "Login"}
         </button>
         {error && <div className="error">{error}</div>}
       </form>
+      <AuthProvider onLogin={handleGoogleLogin} />
     </div>
   );
 };

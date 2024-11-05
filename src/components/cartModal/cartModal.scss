@@ -114,7 +114,10 @@
   }
   &__checkout {
     margin-top: 15px;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    align-items: flex-end;
     justify-content: end;
   }
   &__button {

@@ -49,3 +49,17 @@
     text-align: right;
   }
 }
+
+@media (max-width: 991px) {
+  .account {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .account {
+    &__container {
+      gap: 50px;
+      grid-template-columns: auto;
+    }
+  }
+}
