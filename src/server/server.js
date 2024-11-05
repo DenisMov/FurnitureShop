@@ -109,81 +109,89 @@ const productsData = [
   },
 ];
 
-const users = [];
-const orders = [];
-
-app.post("/orders", (req, res) => {
-  try {
-    console.log("200");
-    orders.push(req.body);
-    return res.status(201).json({ message: "Order has been posted" });
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-app.get("/orders", (req, res) => {
-  const userId = req.query.userId;
-
-  if (!userId) {
-    return res.status(400).json({ message: "UserID is required" });
-  }
-
-  try {
-    const userOrders = orders.filter((order) => order.userId === userId);
-
-    const modifiedData = userOrders.map((order) => ({
-      cartProducts: order.cartProducts,
-      date: order.date,
-      cartTotal: order.cartTotal,
-    }));
-
-    res.status(200).json(modifiedData);
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
 app.get("/products", (req, res) => {
   res.json(productsData);
-});
-
-app.post("/register", (req, res) => {
-  try {
-    const { id, username, password, email } = req.body;
-
-    const userExists = users.some((user) => user.username === username);
-
-    if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
-    }
-
-    users.push({ id, username, password, email });
-    res.status(201).json({ id, username });
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-app.post("/login", (req, res) => {
-  console.log(users);
-
-  try {
-    const { username, password } = req.body;
-    const user = users.find(
-      (user) => user.username === username && user.password === password
-    );
-
-    if (user) {
-      res.status(200).json({ id: user.id, username });
-    } else {
-      res.status(401).json({ error: "Incorrect username or password" });
-    }
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
 });
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
+
+// const users = [];
+// const orders = [];
+
+// app.post("/orders", (req, res) => {
+//   try {
+//     console.log("200");
+//     orders.push(req.body);
+//     return res.status(201).json({ message: "Order has been posted" });
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
+// app.get("/orders", (req, res) => {
+//   const userId = req.query.userId;
+
+//   if (!userId) {
+//     return res.status(400).json({ message: "UserID is required" });
+//   }
+
+//   try {
+//     const userOrders = orders.filter((order) => order.userId === userId);
+
+//     const modifiedData = userOrders.map((order) => ({
+//       cartProducts: order.cartProducts,
+//       date: order.date,
+//       cartTotal: order.cartTotal,
+//     }));
+
+//     res.status(200).json(modifiedData);
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
+// app.get("/products", (req, res) => {
+//   res.json(productsData);
+// });
+
+// app.post("/register", (req, res) => {
+//   try {
+//     const { id, username, password, email } = req.body;
+
+//     const userExists = users.some((user) => user.username === username);
+
+//     if (userExists) {
+//       return res.status(400).json({ message: "User already exists" });
+//     }
+
+//     users.push({ id, username, password, email });
+//     res.status(201).json({ id, username });
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
+// app.post("/login", (req, res) => {
+//   console.log(users);
+
+//   try {
+//     const { username, password } = req.body;
+//     const user = users.find(
+//       (user) => user.username === username && user.password === password
+//     );
+
+//     if (user) {
+//       res.status(200).json({ id: user.id, username });
+//     } else {
+//       res.status(401).json({ error: "Incorrect username or password" });
+//     }
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
+// app.listen(port, () => {
+//   console.log(`Server listening at http://localhost:${port}`);
+// });
