@@ -42,3 +42,18 @@
     height: 100%;
   }
 }
+@media (max-width: 355.98px) {
+  .productItem {
+    &__title {
+      margin-top: 4px;
+      font-size: 18px;
+    }
+    &__price {
+      margin-top: 0px;
+      font-size: 17px;
+    }
+    &__img {
+      text-align: center;
+    }
+  }
+}

@@ -19,6 +19,29 @@
         "*.local"
       ],
       "predeploy": []
+    },
+    {
+      "source": "api-sever-avion",
+      "codebase": "api-sever-avion",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": []
+    },
+    {
+      "source": "avionserver",
+      "codebase": "avionserver",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
     }
   ]
 }

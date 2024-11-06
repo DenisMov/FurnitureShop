@@ -76,3 +76,16 @@
     }
   }
 }
+@media (max-width: 355.98px) {
+  .productsList {
+    padding-left: 0px;
+    &__grid {
+      gap: 20px 15px;
+      grid-template-columns: repeat(2, 130px);
+    }
+    img {
+      width: 130px;
+      height: 170px;
+    }
+  }
+}
