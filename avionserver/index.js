@@ -1,25 +1,36 @@
 const express = require("express");
 const cors = require("cors");
 const admin = require("firebase-admin");
+const fs = require("fs");
 const path = require("path");
-const serviceAccount = require(path.resolve(
-  __dirname,
-  "config",
-  "serviceAccountKey.json"
-));
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+let serviceAccount;
+
+if (
+  fs.existsSync(path.resolve(__dirname, "config", "serviceAccountKey.json"))
+) {
+  serviceAccount = require(path.resolve(
+    __dirname,
+    "config",
+    "serviceAccountKey.json"
+  ));
+} else if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+  serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
+}
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
 const db = admin.firestore();
-const app = express();
-app.use(cors());
-app.use(express.json());
 
 app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.get("/products", async (req, res) => {
   try {
@@ -90,6 +101,7 @@ app.get("/orders", async (req, res) => {
     res.status(500).json({ message: "Error fetching orders", error });
   }
 });
+
 async function loadProductsData() {
   const productsData = [
     {
