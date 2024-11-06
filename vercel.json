@@ -18,5 +18,8 @@
       "src": "/(.*)",
       "dest": "/public/index.html"
     }
-  ]
+  ],
+  "env": {
+    "CI": "false"
+  }
 }

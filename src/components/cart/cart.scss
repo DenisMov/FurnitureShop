@@ -98,7 +98,7 @@
   }
   &__footer {
     display: grid;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: 30px;
     margin-bottom: 50px;
   }
@@ -170,7 +170,7 @@
 
 .flex-wrapper {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .empty {

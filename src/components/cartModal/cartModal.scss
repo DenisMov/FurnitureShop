@@ -118,7 +118,7 @@
     flex-wrap: wrap;
     column-gap: 20px;
     align-items: flex-end;
-    justify-content: end;
+    justify-content: flex-end;
   }
   &__button {
     margin-top: 20px;
@@ -135,7 +135,7 @@
     font-family: "ClashDisplay";
     font-size: 20px;
     font-weight: 400;
-    justify-content: end;
+    justify-content: flex-end;
   }
 }
 @media (max-width: 991px) {
