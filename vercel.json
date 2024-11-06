@@ -1,4 +1,5 @@
 {
+  "root": "FurnitureShop",
   "builds": [
     {
       "src": "api/server.js",
