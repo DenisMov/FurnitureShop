@@ -1,12 +1,11 @@
 {
-  "root": "FurnitureShop",
   "builds": [
     {
       "src": "api/server.js",
       "use": "@vercel/node"
     },
     {
-      "src": "src/**/*",
+      "src": "package.json",
       "use": "@vercel/static-build"
     }
   ],
@@ -17,7 +16,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/public/index.html"
     }
   ]
 }
