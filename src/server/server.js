@@ -109,14 +109,6 @@ const productsData = [
   },
 ];
 
-// app.get("/products", (req, res) => {
-//   res.json(productsData);
-// });
-
-// app.listen(port, () => {
-//   console.log(`Server listening at http://localhost:${port}`);
-// });
-
 const users = [];
 const orders = [];
 

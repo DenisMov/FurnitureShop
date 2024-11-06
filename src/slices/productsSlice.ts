@@ -5,10 +5,10 @@ import { IProduct } from "../types/productTypes";
 import { IInitialProductsState } from "../types/slicesTypes";
 
 export const fetchProducts = createAsyncThunk<IProduct[]>(
-  "fetchProducts",
-  () => {
+  "products/fetchProducts",
+  async () => {
     const { request } = useHttp();
-    return request({ url: "http://localhost:3001/products" });
+    return await request({ url: "http://localhost:3001/products" });
   }
 );
 
@@ -23,38 +23,34 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    setFilter: (state, action) => {
+    setFilter: (state, action: PayloadAction<string>) => {
       if (!state.activeFilter.includes(action.payload)) {
         state.activeFilter.push(action.payload);
       }
     },
-    removeFilter: (state, action) => {
+    removeFilter: (state, action: PayloadAction<string>) => {
       state.activeFilter = state.activeFilter.filter(
         (item) => item !== action.payload
       );
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state: IInitialProductsState) => {
+    builder.addCase(fetchProducts.pending, (state) => {
       state.productsLoadingStatus = "loading";
     });
     builder.addCase(
       fetchProducts.fulfilled,
-      (state: IInitialProductsState, action) => {
+      (state, action: PayloadAction<IProduct[]>) => {
         state.productsLoadingStatus = "idle";
         state.products = action.payload;
       }
     );
-    builder.addCase(fetchProducts.rejected, (state: IInitialProductsState) => {
+
+    builder.addCase(fetchProducts.rejected, (state) => {
       state.productsLoadingStatus = "error";
     });
   },
 });
 
-const { actions, reducer } = productsSlice;
-
-export default reducer;
-
-export const {} = actions;
-
-export const { setFilter, removeFilter } = actions;
+export const { setFilter, removeFilter } = productsSlice.actions;
+export default productsSlice.reducer;

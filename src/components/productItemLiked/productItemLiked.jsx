@@ -13,7 +13,7 @@ const productItemLiked = ({ productType }) => {
     window.scroll(0, 0);
   };
 
-  const renderProducts = (recommendedProducts) => {
+  const renderProducts = () => {
     return recommendedProducts.map((product) => {
       return (
         <div key={product.id} className="itemLiked__miniBlocks">

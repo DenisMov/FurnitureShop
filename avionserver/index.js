@@ -8,7 +8,6 @@ const serviceAccount = require(path.resolve(
   "serviceAccountKey.json"
 ));
 
-// Ініціалізуємо Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
@@ -18,16 +17,24 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Налаштування для обробки статичних файлів (для зображень)
 app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
 
 const port = 3001;
 
-// Приклади ендпоінтів
 app.get("/products", async (req, res) => {
   try {
+    const productType = req.query.productType;
     const productsRef = db.collection("products");
-    const snapshot = await productsRef.get();
+
+    let snapshot;
+    if (productType) {
+      snapshot = await productsRef
+        .where("productType", "==", productType)
+        .get();
+    } else {
+      snapshot = await productsRef.get();
+    }
+
     const products = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -186,13 +193,12 @@ async function loadProductsData() {
 
   const productsRef = db.collection("products");
   for (const product of productsData) {
-    await productsRef.add(product);
+    await productsRef.doc(product.id.toString()).set(product);
   }
   console.log("Products data loaded into Firestore");
 }
 
-// Викличте цю функцію один раз, а потім можете видалити або закоментувати її
-loadProductsData();
+// loadProductsData();
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
