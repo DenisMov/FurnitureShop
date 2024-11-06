@@ -17,6 +17,7 @@
     "firebase-functions": "^6.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "firebase-functions-test": "^3.1.0"
   },
   "private": true
