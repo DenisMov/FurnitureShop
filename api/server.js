@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const admin = require("firebase-admin");
 
-// Ініціалізація Firebase через змінні середовища
 const serviceAccount = {
   type: process.env.FIREBASE_TYPE,
   project_id: process.env.FIREBASE_PROJECT_ID,
@@ -25,7 +24,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Маршрут для продуктів
 app.get("/api/products", async (req, res) => {
   try {
     const productType = req.query.productType;
@@ -50,7 +48,6 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-// Маршрут для реєстрації
 app.post("/api/register", async (req, res) => {
   try {
     const { username, password, email } = req.body;
@@ -80,7 +77,6 @@ app.post("/api/orders", async (req, res) => {
   }
 });
 
-// Маршрут для отримання замовлень
 app.get("/api/orders", async (req, res) => {
   try {
     const userId = req.query.userId;
