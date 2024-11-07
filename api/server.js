@@ -65,7 +65,6 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
-// Маршрут для замовлень
 app.post("/api/orders", async (req, res) => {
   try {
     const order = req.body;
