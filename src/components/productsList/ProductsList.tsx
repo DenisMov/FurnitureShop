@@ -7,7 +7,6 @@ import { fetchProducts } from "../../slices/productsSlice";
 import ProductItem from "../productItem/ProductItem";
 import Spinner from "../Spinner/Spinner";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { useHttp } from "../../hooks/http.hook";
 
 import { IProduct } from "../../types/productTypes";
 import "./productsList.scss";
