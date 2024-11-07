@@ -10,6 +10,9 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/server.js" },
+    { "source": "/products", "destination": "/build/index.html" },
+    { "source": "/register", "destination": "/build/index.html" },
+    { "source": "/login", "destination": "/build/index.html" },
     { "source": "/(.*)", "destination": "/build/index.html" }
   ]
 }
