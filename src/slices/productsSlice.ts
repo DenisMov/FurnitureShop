@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { useHttp } from "../hooks/http.hook";
-
 import { IProduct } from "../types/productTypes";
 import { IInitialProductsState } from "../types/slicesTypes";
 
