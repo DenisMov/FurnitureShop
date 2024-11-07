@@ -19,6 +19,16 @@ const ProductsList = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
+    fetch("https://furniture-shop-teal.vercel.app/api/products")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // перевірка даних у консолі
+        // Використовуйте дані для відображення продуктів у компоненті
+      })
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+
+  useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
