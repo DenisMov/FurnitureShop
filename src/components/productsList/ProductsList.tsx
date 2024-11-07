@@ -22,8 +22,7 @@ const ProductsList = () => {
     fetch("https://furniture-shop-teal.vercel.app/api/products")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data); // перевірка даних у консолі
-        // Використовуйте дані для відображення продуктів у компоненті
+        console.log(data);
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
