@@ -12,14 +12,13 @@ const productItemLiked = ({ productType }) => {
   const scrollToUp = () => {
     window.scroll(0, 0);
   };
-
   const renderProducts = () => {
     return recommendedProducts.map((product) => {
       return (
         <div key={product.id} className="itemLiked__miniBlocks">
           <Link to={`/products/${product.id}`} onClick={scrollToUp}>
             <img
-              src={`http://localhost:3001${product.image}`}
+              src={`https://furniture-shop-teal.vercel.app${product.image}`}
               alt={product.title}
             />
             <p className="itemLiked__title">{product.title}</p>

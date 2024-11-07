@@ -53,11 +53,6 @@ const ProductInfo = () => {
 
   const { productType, title, price, description, image } = selectedProduct;
 
-  // const baseUrl =
-  //   process.env.NODE_ENV === "production"
-  //     ? "https://furniture-shop-teal.vercel.app"
-  //     : "http://localhost:3001";
-
   return (
     <>
       {isOpenAddProductModal ? (

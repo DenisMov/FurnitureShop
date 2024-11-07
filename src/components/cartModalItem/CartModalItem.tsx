@@ -37,7 +37,7 @@ const CartModalItem: FC<ICartModalItemProps> = ({
   return (
     <div className="cartModal__item">
       <div className="cartModal__item-container">
-        <img src={`http://localhost:3001${image}`} alt="img" />
+        <img src={`https://furniture-shop-teal.vercel.app${image}`} alt="img" />
         <div className="cartModal__item-info">
           <div className="cartModal__item-title">{title}</div>
           <div className="cartModal__item-descr">{descriptionText}</div>

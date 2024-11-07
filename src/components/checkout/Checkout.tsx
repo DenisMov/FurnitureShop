@@ -16,6 +16,8 @@ const requiredString = (msg: string) => {
   return yup.string().min(2, msg).required();
 };
 
+const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -69,7 +71,7 @@ const Checkout = () => {
     };
 
     await request({
-      url: "http://localhost:3001/orders",
+      url: `${apiUrl}/orders`,
       method: "POST",
       body: orderData,
     })

@@ -51,7 +51,7 @@ const CartItem: FC<ICartItemProps> = ({
       <div className="cart__item-container">
         <div className="cart__item-info">
           <img
-            src={`http://localhost:3001${image}`}
+            src={`https://furniture-shop-teal.vercel.app${image}`}
             alt="image"
             className="cart__item-img"
           />
