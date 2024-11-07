@@ -15,7 +15,10 @@ const ProductItem: FC<IProductItemProps> = ({ image, title, price, id }) => {
     <Link to={`${id}`}>
       <div className="productItem">
         <div className="productItem__img">
-          <img src={`http://localhost:3001${image}`} alt="photo" />
+          <img
+            src={`https://furniture-shop-teal.vercel.app${image}`}
+            alt="photo"
+          />
         </div>
         <div className="productItem__title">{title}</div>
         <div className="productItem__price">£{price}</div>
