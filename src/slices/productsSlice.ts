@@ -8,14 +8,15 @@ export const fetchProducts = createAsyncThunk<IProduct[]>(
   "products/fetchProducts",
   async () => {
     const { request } = useHttp();
-    return await request({ url: "http://localhost:3001/products" });
+    return await request({
+      url: "https://furniture-shop-teal.vercel.app/api/products",
+    });
   }
 );
 
 const initialState: IInitialProductsState = {
   products: [],
   productsLoadingStatus: "idle",
-  // @ts-ignore
   activeFilter: [],
 };
 
@@ -45,7 +46,6 @@ const productsSlice = createSlice({
         state.products = action.payload;
       }
     );
-
     builder.addCase(fetchProducts.rejected, (state) => {
       state.productsLoadingStatus = "error";
     });

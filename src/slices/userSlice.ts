@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
   async (userData) => {
     const { request } = useHttp();
     return request({
-      url: "http://localhost:3001/login",
+      url: "https://furniture-shop-teal.vercel.app/api/login",
       method: "POST",
       body: userData,
     });
@@ -18,7 +18,7 @@ export const registerUser = createAsyncThunk(
   async (userData) => {
     const { request } = useHttp();
     return request({
-      url: "http://localhost:3001/register",
+      url: "https://furniture-shop-teal.vercel.app/api/register",
       method: "POST",
       body: userData,
     });
@@ -32,7 +32,7 @@ export const fetchUserOrders = createAsyncThunk(
     const userId = state.user?.user?.id;
     const { request } = useHttp();
     return request({
-      url: `http://localhost:3001/orders?userId=${userId}`,
+      url: `https://furniture-shop-teal.vercel.app/api/orders?userId=${userId}`,
     });
   }
 );
@@ -104,17 +104,8 @@ const userSlice = createSlice({
       state.isAuth = false;
       state.isLoading = false;
       state.user = null;
-
-      console.log(action.error.message);
-
-      if (action.error.message === "Request failed with status code 401") {
-        state.error = "Access Denied! Invalid Credentials";
-      } else {
-        //@ts-ignore
-        state.error = action.error.message;
-      }
+      state.error = action.error.message || "Login failed";
     });
-    //Registation
     builder.addCase(registerUser.pending, (state) => {
       state.isLoading = true;
       state.user = null;
@@ -131,15 +122,8 @@ const userSlice = createSlice({
       state.isAuth = false;
       state.isLoading = false;
       state.user = null;
-
-      if (action.error.message === "Request failed with status code 400") {
-        state.error = "Someone already has that username. Try another?";
-      } else {
-        //@ts-ignore
-        state.error = action.error.message;
-      }
+      state.error = action.error.message || "Registration failed";
     });
-    //fetchUserOrders
     builder.addCase(fetchUserOrders.pending, (state) => {
       state.ordersIsLoading = true;
       state.orders = [];
@@ -147,11 +131,10 @@ const userSlice = createSlice({
     });
     builder.addCase(fetchUserOrders.fulfilled, (state, action) => {
       state.ordersIsLoading = false;
-      console.log(action.payload);
       state.orders = action.payload;
       state.ordersError = false;
     });
-    builder.addCase(fetchUserOrders.rejected, (state, action) => {
+    builder.addCase(fetchUserOrders.rejected, (state) => {
       state.orders = null;
       state.ordersIsLoading = false;
       state.ordersError = true;
