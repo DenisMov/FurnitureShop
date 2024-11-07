@@ -24,7 +24,7 @@ requiredEnvVars.forEach((envVar) => {
 
 const serviceAccount = {
   type: process.env.FIREBASE_TYPE,
-  project_id: process.env.FIREBASE_PROJECT_ID,
+  project_id: process.env.REACT_APP_FIREBASE_PROJECT_ID, // Використовуємо REACT_APP_FIREBASE_PROJECT_ID
   private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
   private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
   client_email: process.env.FIREBASE_CLIENT_EMAIL,
@@ -64,7 +64,10 @@ app.get("/api/products", async (req, res) => {
     }));
     res.json(products);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching products", error });
+    console.error("Error fetching products:", error);
+    res
+      .status(500)
+      .json({ message: "Error fetching products", error: error.message });
   }
 });
 
